@@ -11,6 +11,7 @@
                 <a href="/listings/{{$listing->id}}">{{$listing->title}}</a>
             </h3>
             <div class="text-xl font-bold mb-4">{{$listing->manufacturer}}</div>
+            <x-listing-tags :tagsCsv="$listing->tags"/>
         </div>
     </div>
 </x-card>
