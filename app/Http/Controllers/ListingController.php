@@ -34,6 +34,10 @@ class ListingController extends Controller
             'description' => 'required',
         ]);
 
+        if($request->hasFile('image')){
+            $formFields['image'] = $request->file('image')->store('imgs', 'public');
+        }
+
         Listing::create($formFields);
 
         return redirect('/');

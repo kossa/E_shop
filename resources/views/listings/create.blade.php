@@ -7,7 +7,7 @@
             <p class="mb-4">Post an Item for sell</p>
         </header>
 
-        <form method="POST" action="/listings">
+        <form method="POST" action="/listings" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label
@@ -73,19 +73,19 @@
                 @enderror
             </div>
 
-{{--            <div class="mb-6">--}}
-{{--                <label for="image" class="inline-block text-lg mb-2">--}}
-{{--                    Item Image--}}
-{{--                </label>--}}
-{{--                <input--}}
-{{--                    type="file"--}}
-{{--                    class="border border-gray-200 rounded p-2 w-full"--}}
-{{--                    name="image"--}}
-{{--                />--}}
-{{--                @error('file')--}}
-{{--                <p class="text-red-500 text-xs mt-1">{{$message}}</p>--}}
-{{--                @enderror--}}
-{{--            </div>--}}
+            <div class="mb-6">
+                <label for="image" class="inline-block text-lg mb-2">
+                    Item Image
+                </label>
+                <input
+                    type="file"
+                    class="border border-gray-200 rounded p-2 w-full"
+                    name="image"
+                />
+                @error('image')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                @enderror
+            </div>
 
             <div class="mb-6">
                 <label

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('image')->nullable();
             $table->string('manufacturer');
             $table->string('tags');
             $table->string('email');
