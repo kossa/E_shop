@@ -43,4 +43,26 @@ class ListingController extends Controller
         return redirect('/');
     }
 
+    public function edit(Listing $listing){
+        return view('listings.edit', ['listing' => $listing]);
+    }
+
+    public function update(Request $request, Listing $listing){
+        $formFields = $request->validate([
+            'title' => 'required',
+            'manufacturer' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required',
+        ]);
+
+        if($request->hasFile('image')){
+            $formFields['image'] = $request->file('image')->store('imgs', 'public');
+        }
+
+        $listing->update($formFields);
+
+        return redirect('/listings/'.$listing->id);
+    }
+
 }
