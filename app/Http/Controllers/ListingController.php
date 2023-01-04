@@ -65,4 +65,9 @@ class ListingController extends Controller
         return redirect('/listings/'.$listing->id);
     }
 
+    public function destroy(Listing $listing){
+        $listing->delete();
+        return redirect('/');
+    }
+
 }
