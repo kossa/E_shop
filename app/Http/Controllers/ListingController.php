@@ -38,6 +38,8 @@ class ListingController extends Controller
             $formFields['image'] = $request->file('image')->store('imgs', 'public');
         }
 
+        $formFields['user_id'] = auth()->id();
+
         Listing::create($formFields);
 
         return redirect('/');
